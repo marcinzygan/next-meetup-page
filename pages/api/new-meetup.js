@@ -1,9 +1,7 @@
 // api/new-meetup
 import { MongoClient } from "mongodb";
-import { useRouter } from "next/router";
 
 async function handler(req, res) {
-  const router = useRouter();
   if (req.method === "POST") {
     const data = req.body;
 
@@ -16,7 +14,6 @@ async function handler(req, res) {
     console.log(result);
     client.close();
     res.status(201).json({ message: "Meetup added" });
-    router.push("/");
   }
 }
 
